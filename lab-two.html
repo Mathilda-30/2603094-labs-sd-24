@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab Two</title>
   <style>
-    /* Add CSS styles here */
+    /* CSS styles */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -14,16 +14,26 @@
     header {
       background-color: black;
       color: white;
-      padding: 20px;
+      padding: 10px 20px; /* Adjust the padding to make the black part thinner */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     
     nav ul {
-      display: flex;
       list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
     }
     
     nav li {
-      margin-right: 20px;
+      margin-left: 20px;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
     }
     
     main {
@@ -35,32 +45,78 @@
     }
     
     img {
-      max-width: 100%;
-      height: auto;
+      width: 600px; /* Set the width to 600 pixels */
+      height: 400px; /* Set the height to 400 pixels */
       display: block;
       margin: 0 auto;
     }
     
-    .service {
-      display: inline-block;
-      margin-right: 20px; /* Adjust the spacing between service sections */
+    article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
-    
+
+    article img {
+      margin-top: 10px; /* Adjust the margin top as needed */
+    }
+    .about-us img {
+      margin-bottom: 20px; /* Adjust the margin bottom as needed */
+    }
+
+
+    .services {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative; /* Ensure positioning works relative to this container */
+      border: 2px solid black; /* Border around the bottom images */
+      padding: 20px;
+    }
+
+    .services::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-color: black;
+      z-index: -1; /* Ensure the line is behind other elements */
+    }
+
+    .services article {
+      flex: 1;
+      text-align: center;
+      max-width: 600px; /* Set maximum width to maintain layout */
+      margin: 0 20px; /* Add margin to separate the images */
+    }
+
+    .services h2 {
+      position: absolute;
+      top: -60px; /* Adjust position above the border */
+      left: 50%;
+      transform: translateX(-50%);
+      color: black;
+      padding: 10px 20px;
+      z-index: 1; /* Ensure the heading is above the line */
+}
+
+
     footer {
       background-color: black;
       color: white;
+      padding: 10px 0;
       text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
     }
   </style>
 </head>
 <body>
   <header>
+    <h1>Welcome to Software Design Website</h1>
     <nav>
-      <h1>Welcome to Software Design Website</h1>
       <ul>
         <li><a href="#">About Us</a></li>
         <li><a href="#">Services</a></li>
@@ -71,23 +127,25 @@
   
   <main>
     <section class="about-us">
-      <h2>About Us</h2>
-      <p>We are a company dedicated to providing excellent services to our customers.</p>
-      <img src="images/about_us _image.png" alt="About Us Image">
+        <article>
+            <h2>About Us</h2>
+            <p>We are a company dedicated to providing excellent services to our customers.</p>
+            <img src="images/about_us _image.png" alt="About Us Image">
+        </article>
     </section>
     
     <section class="services">
-      <h2>Our Services</h2>
-      <div class="service">
-        <h3>Web Development</h3> 
-        <p>We specialize in creating responsive and user-friendly websites.</p>
-        <img src="images/web_development_image.png" alt="Web Development Image">
-      </div>
-      <div class="service">
-        <h3>Graphic Design</h3>
-        <p>Our talented designers can bring your ideas to life with stunning visuals.</p>
-        <img src="images/graphic_design.jpg" alt="Graphic Design Image">
-      </div>
+        <h2>Our Services</h2>
+        <article>
+            <h3>Web Development</h3>
+            <p>We specialize in creating responsive and user-friendly websites.</p>
+            <img src="images/web_development_image.png" alt="Web Development Image">
+        </article>
+        <article>
+            <h3>Graphic Design</h3>
+            <p>Our talented designers can bring your ideas to life with stunning visuals.</p>
+            <img src="images/graphic_design.jpg" alt="Graphic Design Image">
+        </article>
     </section>
   </main>
   
